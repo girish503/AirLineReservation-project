@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airline Reservation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="bg-white shadow">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold">✈️ Airline Reservation</h1>
+        <nav class="flex gap-2 text-sm">
+          <button data-tab="flights" class="tab-btn px-3 py-1 rounded bg-slate-900 text-white">Flights</button>
+          <button data-tab="book" class="tab-btn px-3 py-1 rounded hover:bg-slate-200">Book</button>
+          <button data-tab="reservations" class="tab-btn px-3 py-1 rounded hover:bg-slate-200">Reservations</button>
+          <button data-tab="cancel" class="tab-btn px-3 py-1 rounded hover:bg-slate-200">Cancel</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-6">
+      <!-- Flights -->
+      <section id="tab-flights" class="tab">
+        <h2 class="text-xl font-semibold mb-4">Available Flights</h2>
+        <div id="flights-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </section>
+
+      <!-- Book -->
+      <section id="tab-book" class="tab hidden">
+        <h2 class="text-xl font-semibold mb-4">Book a Flight</h2>
+        <form id="book-form" class="bg-white rounded-lg border p-4 space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1" for="book-flight">Flight</label>
+            <select id="book-flight" class="w-full border rounded px-3 py-2"></select>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1" for="first-name">First Name</label>
+              <input id="first-name" type="text" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="last-name">Last Name</label>
+              <input id="last-name" type="text" class="w-full border rounded px-3 py-2" required />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1" for="email">Email</label>
+              <input id="email" type="email" class="w-full border rounded px-3 py-2" required />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="phone">Phone</label>
+              <input id="phone" type="tel" class="w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="seats">Seats</label>
+              <input id="seats" type="number" min="1" value="1" class="w-full border rounded px-3 py-2" required />
+            </div>
+          </div>
+          <div class="flex items-center justify-end gap-3">
+            <button type="reset" class="px-4 py-2 rounded border">Clear</button>
+            <button type="submit" class="px-4 py-2 rounded bg-slate-900 text-white">Book</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Reservations -->
+      <section id="tab-reservations" class="tab hidden">
+        <h2 class="text-xl font-semibold mb-4">Reservations</h2>
+        <div id="reservations-list" class="space-y-3"></div>
+      </section>
+
+      <!-- Cancel -->
+      <section id="tab-cancel" class="tab hidden">
+        <h2 class="text-xl font-semibold mb-4">Cancel Reservation</h2>
+        <form id="cancel-form" class="bg-white rounded-lg border p-4 space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1" for="cancel-code">Reservation Code</label>
+            <input id="cancel-code" type="text" class="w-full border rounded px-3 py-2" placeholder="e.g., RSV-ABC123" required />
+          </div>
+          <div class="flex items-center justify-end gap-3">
+            <button type="reset" class="px-4 py-2 rounded border">Clear</button>
+            <button type="submit" class="px-4 py-2 rounded bg-red-600 text-white">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="py-8 text-center text-sm text-slate-500">Built with Tailwind CSS</footer>
+
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
